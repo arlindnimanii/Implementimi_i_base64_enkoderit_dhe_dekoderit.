@@ -1,0 +1,28 @@
+package base64encodingdecoding;
+
+import java.util.Base64;
+import java.util.Base64.Decoder;
+import java.util.Base64.Encoder;
+import java.util.UUID;
+
+public class ClientTest {
+
+	public static void main(String[] args) {
+  
+  //3
+  System.out.println("MIME enoding and decoding....");
+        
+        String uuid = UUID.randomUUID().toString();
+        System.out.println(uuid);
+        Encoder mimeEncoder = Base64.getMimeEncoder();
+        
+        String encodeMimeString = mimeEncoder.encodeToString(uuid.getBytes());
+        System.out.println(encodeMimeString);
+        
+        Decoder mimeDecoder = Base64.getMimeDecoder();
+        byte[] decode3 = mimeDecoder.decode(encodeMimeString);
+        String deocdedMineStr = new String(decode3);
+        System.out.println(deocdedMineStr);
+        
+	}
+}
